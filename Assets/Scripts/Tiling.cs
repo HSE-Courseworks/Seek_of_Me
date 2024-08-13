@@ -7,6 +7,7 @@ using UnityEngine;
 public class Tiling : MonoBehaviour {
 
     public int offsetX = 2;     // the offset so that avoid errors
+    
     // for check buddy
     public bool hasARightBuddy = false;
     public bool hasALeftBuddy = false;
@@ -39,6 +40,37 @@ public class Tiling : MonoBehaviour {
             // calculate x_position where camera can see edge of sprite (element)
             float edgeVisiblePositionLeft = (myTransform.position.x - spriteWidth / 2) + cameraHorizontalExtend;
             float edgeVisiblePositionRight = (myTransform.position.x + spriteWidth / 2) - cameraHorizontalExtend;
+
+            // creation criteria for buddies
+            if (camera.transform.position.x >= edgeVisiblePositionRight - offsetX && hasARightBuddy == false) {
+                MakeNewBuddy(1);
+                hasARightBuddy = true;
+            }
+            else if (camera.transform.position.x <= edgeVisiblePositionLeft + offsetX && hasALeftBuddy == false) {
+                MakeNewBuddy(-1);
+                hasALeftBuddy = true;
+            }
         }
 	}
+
+    // creation function for buddy
+    void MakeNewBuddy (int rightOrLeft) {
+        // calculate position for new buddy
+        Vector3 newPosition = new Vector3(myTransform.position.x + spriteWidth * rightOrLeft, myTransform.position.y, myTransform.position.z);
+        // instantiate newBuddy and storing
+        Transform newBuddy = Instantiate(myTransform, newPosition, myTransform.rotation) as Transform;
+
+        // if not tilable - reverse x_position our element
+        if (reverseScale == true) {
+            newBuddy.localScale = new Vector3(newBuddy.localScale.x*-1, newBuddy.localScale.y, newBuddy.localScale.z);
+        }
+
+        newBuddy.parent = myTransform.parent;
+        if (rightOrLeft > 0) {
+            newBuddy.GetComponent<Tiling>().hasALeftBuddy = true;
+        }
+        else {
+            newBuddy.GetComponent<Tiling>().hasARightBuddy = true;
+        }
+    }
 }
