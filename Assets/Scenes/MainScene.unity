@@ -849,6 +849,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114407966015801578, guid: 18bfdeb343398bd4592a4ff69c68dba9,
+        type: 2}
+      propertyPath: fireRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114407966015801578, guid: 18bfdeb343398bd4592a4ff69c68dba9,
+        type: 2}
+      propertyPath: BulletTrailPrefab
+      value: 
+      objectReference: {fileID: 4332747703581890, guid: f547bd57355c9fd41a1eaa51f14fc8a0,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18bfdeb343398bd4592a4ff69c68dba9, type: 2}
   m_IsPrefabParent: 0
