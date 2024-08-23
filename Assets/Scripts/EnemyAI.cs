@@ -1,5 +1,5 @@
-﻿// using System.Collections;
-// using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
@@ -45,7 +45,24 @@ public class EnemyAI : MonoBehaviour {
 
 		// Start a new path to the target position and return the result to the OnPathComplete method
 		seeker.StartPath(transform.position, target.position, OnPathComplete);
+
+		StartCoroutine(UpdatePath());
     }
+
+	IEnumerator UpdatePath()
+    {
+		if (target == null)
+        {
+			// TODO: Insert a player search here
+			yield break;
+        }
+
+		// Start a new path to the target position and return the result to the OnPathComplete method
+		seeker.StartPath(transform.position, target.position, OnPathComplete);
+
+		yield return new WaitForSeconds(1f/updateRate);
+		StartCoroutine(UpdatePath());
+	}
 
 	public void OnPathComplete(Path p)
     {
@@ -56,4 +73,38 @@ public class EnemyAI : MonoBehaviour {
 			currentWaypoint = 0;
         }
     }
+
+	private void FixedUpdate()
+	{
+		if (target == null)
+		{
+			// TODO: Insert a player search here
+		}
+
+		// TODO: Always look at player
+		if (path == null)
+		{}
+
+		if (currentWaypoint >= path.vectorPath.Count)
+        {
+			if (pathIsEnded)
+            {}
+			Debug.Log("End of path reached");
+			pathIsEnded = true;
+		}
+		pathIsEnded = false;
+
+		// Direction to the next waypoint
+		Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+		dir *= speed * Time.fixedDeltaTime;
+
+		// Move the AI
+		rb.AddForce(dir, fMode);
+
+		float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
+		if (dist < nextWaypointDistance)
+        {
+			currentWaypoint++;
+		}
+	}
 }
