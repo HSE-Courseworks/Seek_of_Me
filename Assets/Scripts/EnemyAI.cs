@@ -31,6 +31,8 @@ public class EnemyAI : MonoBehaviour {
 
 	// The waypoint we are currently moving towards
 	private int currentWaypoint = 0;
+
+	private bool searchingForPlayer = false;
 	
 	void Start()
     {
@@ -39,7 +41,11 @@ public class EnemyAI : MonoBehaviour {
 
 		if (target == null)
         {
-			Debug.LogError("No player found? PANIC!");
+			if (!searchingForPlayer)
+            {
+				searchingForPlayer = true;
+				StartCoroutine(SearchForPlayer());
+            }
 			return;
         }
 
@@ -49,13 +55,33 @@ public class EnemyAI : MonoBehaviour {
 		StartCoroutine(UpdatePath());
     }
 
+	IEnumerator SearchForPlayer ()
+    {
+		GameObject sResult = GameObject.FindGameObjectWithTag("Player");
+		if (sResult == null)
+        {
+			yield return new WaitForSeconds(0.5f);
+			StartCoroutine(SearchForPlayer());
+        } else
+        {
+			target = sResult.transform;
+			searchingForPlayer = false;
+			StartCoroutine(UpdatePath());
+			yield break;
+        }
+    }
+
 	IEnumerator UpdatePath()
     {
 		if (target == null)
-        {
-			// TODO: Insert a player search here
+		{
+			if (!searchingForPlayer)
+			{
+				searchingForPlayer = true;
+				StartCoroutine(SearchForPlayer());
+			}
 			yield break;
-        }
+		}
 
 		// Start a new path to the target position and return the result to the OnPathComplete method
 		seeker.StartPath(transform.position, target.position, OnPathComplete);
@@ -78,19 +104,29 @@ public class EnemyAI : MonoBehaviour {
 	{
 		if (target == null)
 		{
-			// TODO: Insert a player search here
+			if (!searchingForPlayer)
+			{
+				searchingForPlayer = true;
+				StartCoroutine(SearchForPlayer());
+			}
+			return;
 		}
 
 		// TODO: Always look at player
 		if (path == null)
-		{}
+		{
+			return;
+		}
 
 		if (currentWaypoint >= path.vectorPath.Count)
         {
 			if (pathIsEnded)
-            {}
+            {
+				return;
+			}
 			Debug.Log("End of path reached");
 			pathIsEnded = true;
+			return;
 		}
 		pathIsEnded = false;
 
@@ -105,6 +141,7 @@ public class EnemyAI : MonoBehaviour {
 		if (dist < nextWaypointDistance)
         {
 			currentWaypoint++;
+			return;
 		}
 	}
 }
