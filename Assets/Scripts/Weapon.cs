@@ -77,7 +77,7 @@ public class Weapon : MonoBehaviour {
 			if (enemy != null)
             {
 				enemy.DamageEnemy(Damage);
-				Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage");
+				//Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage");
 			}
         }
 
