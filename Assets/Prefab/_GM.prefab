@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 114275248082708930}
   - component: {fileID: 114244620095525576}
   - component: {fileID: 82235829681046950}
+  - component: {fileID: 114944841702864902}
+  - component: {fileID: 114230526492367834}
   m_Layer: 0
   m_Name: _GM
   m_TagString: GM
@@ -151,6 +153,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114230526492367834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1876869477485204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc012b0b156279244b834086c10c7ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - name: Alien Invasion
+    enemy: {fileID: 4222100175662590, guid: f4ea9f68ca19e6847813b8b3f3e75f48, type: 2}
+    count: 2
+    rate: 1
+  - name: Alien Invasion 2.0
+    enemy: {fileID: 4222100175662590, guid: f4ea9f68ca19e6847813b8b3f3e75f48, type: 2}
+    count: 3
+    rate: 1.5
+  - name: Alien Invasion Hardcore
+    enemy: {fileID: 4222100175662590, guid: f4ea9f68ca19e6847813b8b3f3e75f48, type: 2}
+    count: 5
+    rate: 2
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  timeBetweenWaves: 5
 --- !u!114 &114244620095525576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,6 +198,7 @@ MonoBehaviour:
   spawnDelay: 3
   spawnPrefab: {fileID: 4446451577097378, guid: 6dc530835b0458a48b18e299635545f3,
     type: 2}
+  cameraShake: {fileID: 114944841702864902}
 --- !u!114 &114275248082708930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,3 +215,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   smoothing: 1.5
+--- !u!114 &114944841702864902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1876869477485204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3818b533c76cc5943a5bc9db6d138e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
