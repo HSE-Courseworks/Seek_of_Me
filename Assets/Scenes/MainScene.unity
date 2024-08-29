@@ -152,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114944841702864902, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 633479317}
     - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
         type: 2}
       propertyPath: spawnPoints.Array.data[0]
@@ -182,11 +187,6 @@ Prefab:
       propertyPath: backgrounds.Array.data[2]
       value: 
       objectReference: {fileID: 265126726}
-    - target: {fileID: 114944841702864902, guid: 90aea3a710f8211459444ec3b5d5f650,
-        type: 2}
-      propertyPath: mainCam
-      value: 
-      objectReference: {fileID: 633479317}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90aea3a710f8211459444ec3b5d5f650, type: 2}
   m_IsPrefabParent: 0
@@ -820,6 +820,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &717550930 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+    type: 2}
+  m_PrefabInternal: {fileID: 62984571}
+  m_Script: {fileID: 11500000, guid: cc012b0b156279244b834086c10c7ce2, type: 3}
 --- !u!1 &1112151243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,6 +1711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2002907056}
   - component: {fileID: 2002907057}
+  - component: {fileID: 2002907058}
   m_Layer: 5
   m_Name: WaveUI
   m_TagString: Untagged
@@ -1749,6 +1756,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &2002907058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2002907055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125d662cb572b7344b5370aee7d5169c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 717550930}
+  waveAnimator: {fileID: 2002907057}
+  waveCountdownText: {fileID: 2126574262}
+  waveCountText: {fileID: 1937722095}
 --- !u!1 &2020613003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,10 +1895,10 @@ RectTransform:
   m_Father: {fileID: 2002907056}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 189.95001}
-  m_SizeDelta: {x: 338.38, y: 97.87}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -115.3}
+  m_SizeDelta: {x: 338.38, y: 97.869995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &2126574259
 CanvasGroup:

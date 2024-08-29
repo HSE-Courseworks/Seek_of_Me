@@ -92,7 +92,7 @@ public class EnemyAI : MonoBehaviour {
 
 	public void OnPathComplete(Path p)
     {
-		Debug.Log("We got a path. Did it have an error?" + p.error);
+		// Debug.Log("We got a path. Did it have an error?" + p.error);
 		if (!p.error)
         {
 			path = p;
@@ -124,7 +124,7 @@ public class EnemyAI : MonoBehaviour {
             {
 				return;
 			}
-			Debug.Log("End of path reached");
+			// Debug.Log("End of path reached");
 			pathIsEnded = true;
 			return;
 		}
