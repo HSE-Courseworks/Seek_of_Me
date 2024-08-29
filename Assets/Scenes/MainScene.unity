@@ -152,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114944841702864902, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 633479317}
     - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
         type: 2}
       propertyPath: spawnPoints.Array.data[0]
@@ -182,11 +187,6 @@ Prefab:
       propertyPath: backgrounds.Array.data[2]
       value: 
       objectReference: {fileID: 265126726}
-    - target: {fileID: 114944841702864902, guid: 90aea3a710f8211459444ec3b5d5f650,
-        type: 2}
-      propertyPath: mainCam
-      value: 
-      objectReference: {fileID: 633479317}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90aea3a710f8211459444ec3b5d5f650, type: 2}
   m_IsPrefabParent: 0
