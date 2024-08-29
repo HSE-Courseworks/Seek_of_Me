@@ -6,10 +6,13 @@ public class GameMaster : MonoBehaviour {
 
     public static GameMaster gm;
 
-    void Awake()
-    {
-        if (gm == null)
-        {
+    private static int _remainingLives = 3;
+    public static int RemainingLives {
+        get { return _remainingLives; }
+    }
+
+    void Awake() {
+        if (gm == null) {
             gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         }
     }
@@ -21,39 +24,41 @@ public class GameMaster : MonoBehaviour {
 
     public CameraShake cameraShake;
 
-    void Start()
-    {
-        if (cameraShake == null)
-        {
+    void Start() {
+        if (cameraShake == null) {
             Debug.LogError("No camera shake referenced in GameMaster");
         }
     }
 
-    public IEnumerator _RespawnPlayer()
-    {
+    public void EndGame() {
+        Debug.Log("GAME OVER");
+    }
+
+    public IEnumerator _RespawnPlayer() {
         GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(spawnDelay); // Ienumerator
 
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
-        //GameObject clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as GameObject; not working
-        //Destroy(clone, 3f);
         Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as Transform;
         Destroy(clone.gameObject, 3f);
     }
 
-	public static void KillPlayer(Player player)
-    {
+	public static void KillPlayer(Player player) {
         Destroy(player.gameObject);
-        gm.StartCoroutine(gm._RespawnPlayer());
+        --_remainingLives;
+        if (_remainingLives <= 0) {
+            gm.EndGame();
+        }
+        else {
+            gm.StartCoroutine(gm._RespawnPlayer());
+        }
     }
 
-    public static void KillEnemy (Enemy enemy)
-    {
+    public static void KillEnemy (Enemy enemy) {
         gm._KillEnemy(enemy);
     }
 
-    public void _KillEnemy(Enemy _enemy) 
-    {
+    public void _KillEnemy(Enemy _enemy) {
         Transform _clone = Instantiate(_enemy.deathParticles, _enemy.transform.position, Quaternion.identity) as Transform;
         Destroy(_clone.gameObject, 5f);
         cameraShake.Shake(_enemy.shakeAmt, _enemy.shakeLength);
