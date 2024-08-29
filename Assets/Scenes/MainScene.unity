@@ -191,21 +191,6 @@ Prefab:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 633479317}
-    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
-        type: 2}
-      propertyPath: spawnPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1457617901}
-    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
-        type: 2}
-      propertyPath: spawnPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1112151244}
-    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
-        type: 2}
-      propertyPath: spawnPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 95723762}
     - target: {fileID: 114275248082708930, guid: 90aea3a710f8211459444ec3b5d5f650,
         type: 2}
       propertyPath: backgrounds.Array.data[0]
@@ -221,6 +206,26 @@ Prefab:
       propertyPath: backgrounds.Array.data[2]
       value: 
       objectReference: {fileID: 265126726}
+    - target: {fileID: 114244620095525576, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 1562281003}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1457617901}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: spawnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1112151244}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: spawnPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 95723762}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90aea3a710f8211459444ec3b5d5f650, type: 2}
   m_IsPrefabParent: 0
@@ -1047,6 +1052,7 @@ GameObject:
   - component: {fileID: 783201367}
   - component: {fileID: 783201369}
   - component: {fileID: 783201368}
+  - component: {fileID: 783201370}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1105,6 +1111,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 783201366}
+--- !u!225 &783201370
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 783201366}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1112151243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,13 +1738,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1562281004}
   - component: {fileID: 1562281005}
+  - component: {fileID: 1562281007}
+  - component: {fileID: 1562281006}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1562281004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1761,6 +1780,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb7ee36241c6d0488a95d098af64b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1562281006
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1562281003}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b7fb12ebc17aa141b9ac483a30fb948, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!225 &1562281007
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1562281003}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1563343238
 GameObject:
   m_ObjectHideFlags: 0

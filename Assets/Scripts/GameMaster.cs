@@ -24,6 +24,9 @@ public class GameMaster : MonoBehaviour {
 
     public CameraShake cameraShake;
 
+    [SerializeField]
+    private GameObject gameOverUI;
+
     void Start() {
         if (cameraShake == null) {
             Debug.LogError("No camera shake referenced in GameMaster");
@@ -32,6 +35,7 @@ public class GameMaster : MonoBehaviour {
 
     public void EndGame() {
         Debug.Log("GAME OVER");
+        gameOverUI.SetActive(true);
     }
 
     public IEnumerator _RespawnPlayer() {
