@@ -23,17 +23,27 @@ public class GameMaster : MonoBehaviour {
     public Transform spawnPoint;
     public int spawnDelay = 2;
     public Transform spawnPrefab;
+    public string spawnSoundName;
 
     public CameraShake cameraShake;
 
     [SerializeField]
     private GameObject gameOverUI;
 
+    //cache
+    private AudioManager audioManager;
+
     void Start() {
         if (cameraShake == null) {
             Debug.LogError("No camera shake referenced in GameMaster");
         }
         _remainingLives = maxLives;
+
+        //caching
+        audioManager = AudioManager.instance;
+        if (audioManager == null) {
+            Debug.LogError("FREAK OUT! No AudioManager found in the scene.");
+        }
     }
 
     public void EndGame() {
@@ -42,7 +52,7 @@ public class GameMaster : MonoBehaviour {
     }
 
     public IEnumerator _RespawnPlayer() {
-        GetComponent<AudioSource>().Play();
+        audioManager.PlaySound(spawnSoundName);
         yield return new WaitForSeconds(spawnDelay); // Ienumerator
 
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
