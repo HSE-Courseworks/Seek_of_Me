@@ -1,15 +1,19 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
 
     public static GameMaster gm;
 
-    void Awake()
-    {
-        if (gm == null)
-        {
+    [SerializeField]
+    private int maxLives = 3;
+    private static int _remainingLives;
+    public static int RemainingLives {
+        get { return _remainingLives; }
+    }
+
+    void Awake() {
+        if (gm == null) {
             gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         }
     }
@@ -18,44 +22,72 @@ public class GameMaster : MonoBehaviour {
     public Transform spawnPoint;
     public int spawnDelay = 2;
     public Transform spawnPrefab;
+    public string respawnCountdownSoundName = "RespawnCountdown";
+    public string spawnSoundName = "Spawn";
+    public string gameOverSoundName = "GameOver";
 
     public CameraShake cameraShake;
 
-    void Start()
-    {
-        if (cameraShake == null)
-        {
+    [SerializeField]
+    private GameObject gameOverUI;
+
+    //cache
+    private AudioManager audioManager;
+
+    void Start() {
+        if (cameraShake == null) {
             Debug.LogError("No camera shake referenced in GameMaster");
+        }
+        _remainingLives = maxLives;
+
+        //caching
+        audioManager = AudioManager.instance;
+        if (audioManager == null) {
+            Debug.LogError("FREAK OUT! No AudioManager found in the scene.");
         }
     }
 
-    public IEnumerator _RespawnPlayer()
-    {
-        GetComponent<AudioSource>().Play();
+    public void EndGame() {
+        audioManager.PlaySound(gameOverSoundName);
+
+        Debug.Log("GAME OVER");
+        gameOverUI.SetActive(true);
+    }
+
+    public IEnumerator _RespawnPlayer() {
+        audioManager.PlaySound(respawnCountdownSoundName);
         yield return new WaitForSeconds(spawnDelay); // Ienumerator
 
+        audioManager.PlaySound(spawnSoundName);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
-        //GameObject clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as GameObject; not working
-        //Destroy(clone, 3f);
         Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as Transform;
         Destroy(clone.gameObject, 3f);
     }
 
-	public static void KillPlayer(Player player)
-    {
+	public static void KillPlayer(Player player) {
         Destroy(player.gameObject);
-        gm.StartCoroutine(gm._RespawnPlayer());
+        --_remainingLives;
+        if (_remainingLives <= 0) {
+            gm.EndGame();
+        }
+        else {
+            gm.StartCoroutine(gm._RespawnPlayer());
+        }
     }
 
-    public static void KillEnemy (Enemy enemy)
-    {
+    public static void KillEnemy (Enemy enemy) {
         gm._KillEnemy(enemy);
     }
 
-    public void _KillEnemy(Enemy _enemy) 
-    {
+    public void _KillEnemy(Enemy _enemy) {
+        // Play sound
+        audioManager.PlaySound(_enemy.deathSoundName);
+
+        // Add particles
         Transform _clone = Instantiate(_enemy.deathParticles, _enemy.transform.position, Quaternion.identity) as Transform;
         Destroy(_clone.gameObject, 5f);
+
+        // Go camera shake
         cameraShake.Shake(_enemy.shakeAmt, _enemy.shakeLength);
         Destroy(_enemy.gameObject);
     }
