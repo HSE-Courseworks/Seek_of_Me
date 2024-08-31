@@ -58,9 +58,25 @@ MonoBehaviour:
     pitch: 1
     randomVolume: 0
     randomPitch: 0
+    loop: 0
   - name: Music
     clip: {fileID: 8300000, guid: 4a5610890b10503409b0d45e2392b611, type: 3}
     volume: 0.4
     pitch: 1
     randomVolume: 0
     randomPitch: 0
+    loop: 1
+  - name: ButtonHover
+    clip: {fileID: 8300000, guid: 4a63116c3064c904e81ea33ba3a7fbdb, type: 3}
+    volume: 0.55
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: ButtonPress
+    clip: {fileID: 8300000, guid: dcbe733ba49709942b41fb299e285aff, type: 3}
+    volume: 0.45
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
