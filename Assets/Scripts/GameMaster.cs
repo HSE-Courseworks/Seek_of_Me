@@ -24,6 +24,7 @@ public class GameMaster : MonoBehaviour {
     public Transform spawnPrefab;
     public string respawnCountdownSoundName = "RespawnCountdown";
     public string spawnSoundName = "Spawn";
+    public string gameOverSoundName = "GameOver";
 
     public CameraShake cameraShake;
 
@@ -47,6 +48,8 @@ public class GameMaster : MonoBehaviour {
     }
 
     public void EndGame() {
+        audioManager.PlaySound(gameOverSoundName);
+
         Debug.Log("GAME OVER");
         gameOverUI.SetActive(true);
     }
