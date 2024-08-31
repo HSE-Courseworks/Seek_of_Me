@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
@@ -23,7 +22,8 @@ public class GameMaster : MonoBehaviour {
     public Transform spawnPoint;
     public int spawnDelay = 2;
     public Transform spawnPrefab;
-    public string spawnSoundName;
+    public string respawnCountdownSoundName = "RespawnCountdown";
+    public string spawnSoundName = "Spawn";
 
     public CameraShake cameraShake;
 
@@ -52,9 +52,10 @@ public class GameMaster : MonoBehaviour {
     }
 
     public IEnumerator _RespawnPlayer() {
-        audioManager.PlaySound(spawnSoundName);
+        audioManager.PlaySound(respawnCountdownSoundName);
         yield return new WaitForSeconds(spawnDelay); // Ienumerator
 
+        audioManager.PlaySound(spawnSoundName);
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
         Transform clone = Instantiate(spawnPrefab, spawnPoint.position, spawnPoint.rotation) as Transform;
         Destroy(clone.gameObject, 3f);
@@ -76,8 +77,14 @@ public class GameMaster : MonoBehaviour {
     }
 
     public void _KillEnemy(Enemy _enemy) {
+        // Play sound
+        audioManager.PlaySound(_enemy.deathSoundName);
+
+        // Add particles
         Transform _clone = Instantiate(_enemy.deathParticles, _enemy.transform.position, Quaternion.identity) as Transform;
         Destroy(_clone.gameObject, 5f);
+
+        // Go camera shake
         cameraShake.Shake(_enemy.shakeAmt, _enemy.shakeLength);
         Destroy(_enemy.gameObject);
     }

@@ -186,11 +186,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114244620095525576, guid: 90aea3a710f8211459444ec3b5d5f650,
+    - target: {fileID: 114944841702864902, guid: 90aea3a710f8211459444ec3b5d5f650,
         type: 2}
-      propertyPath: gameOverUI
+      propertyPath: mainCam
       value: 
-      objectReference: {fileID: 1562281003}
+      objectReference: {fileID: 633479317}
     - target: {fileID: 114275248082708930, guid: 90aea3a710f8211459444ec3b5d5f650,
         type: 2}
       propertyPath: backgrounds.Array.data[0]
@@ -206,11 +206,11 @@ Prefab:
       propertyPath: backgrounds.Array.data[2]
       value: 
       objectReference: {fileID: 265126726}
-    - target: {fileID: 114944841702864902, guid: 90aea3a710f8211459444ec3b5d5f650,
+    - target: {fileID: 114244620095525576, guid: 90aea3a710f8211459444ec3b5d5f650,
         type: 2}
-      propertyPath: mainCam
+      propertyPath: gameOverUI
       value: 
-      objectReference: {fileID: 633479317}
+      objectReference: {fileID: 1562281003}
     - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
         type: 2}
       propertyPath: spawnPoints.Array.data[0]
@@ -226,8 +226,7 @@ Prefab:
       propertyPath: spawnPoints.Array.data[2]
       value: 
       objectReference: {fileID: 95723762}
-    m_RemovedComponents:
-    - {fileID: 114283898229343558, guid: 90aea3a710f8211459444ec3b5d5f650, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90aea3a710f8211459444ec3b5d5f650, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &67183106

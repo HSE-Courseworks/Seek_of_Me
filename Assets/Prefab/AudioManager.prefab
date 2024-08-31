@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Respawn
+  - name: RespawnCountdown
     clip: {fileID: 8300000, guid: 4ef39c8508f360743ab442f63161e5e1, type: 3}
     volume: 0.7
     pitch: 1
@@ -76,6 +76,41 @@ MonoBehaviour:
   - name: ButtonPress
     clip: {fileID: 8300000, guid: dcbe733ba49709942b41fb299e285aff, type: 3}
     volume: 0.45
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: DefaultShot
+    clip: {fileID: 8300000, guid: 5aa775cc43151fc4bb9e9bd10a26cbe9, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 732abc4911dfcb441b04787755cb57e9, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: DeathVoice
+    clip: {fileID: 8300000, guid: 169dc38c6e67d1140bcf584e152edf8b, type: 3}
+    volume: 0.5
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+  - name: Grunt
+    clip: {fileID: 8300000, guid: 66cdb30c643afdd42a61055a5a0c20b1, type: 3}
+    volume: 0.4
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0
+    loop: 0
+  - name: Spawn
+    clip: {fileID: 8300000, guid: dac68f7c95a3a6a4dad68654bdf5cbbe, type: 3}
+    volume: 0.6
     pitch: 1
     randomVolume: 0
     randomPitch: 0
