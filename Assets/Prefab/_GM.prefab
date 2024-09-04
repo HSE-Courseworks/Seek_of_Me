@@ -120,8 +120,10 @@ MonoBehaviour:
     type: 2}
   respawnCountdownSoundName: RespawnCountdown
   spawnSoundName: Spawn
+  gameOverSoundName: GameOver
   cameraShake: {fileID: 114944841702864902}
   gameOverUI: {fileID: 0}
+  upgradeMenu: {fileID: 0}
 --- !u!114 &114275248082708930
 MonoBehaviour:
   m_ObjectHideFlags: 1

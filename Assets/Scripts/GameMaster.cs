@@ -31,6 +31,12 @@ public class GameMaster : MonoBehaviour {
     [SerializeField]
     private GameObject gameOverUI;
 
+    [SerializeField]
+    private GameObject upgradeMenu;
+
+    public delegate void UpgradeMenuCallback(bool active);
+    public UpgradeMenuCallback onToggleUpgradeMenu;
+
     //cache
     private AudioManager audioManager;
 
@@ -52,6 +58,20 @@ public class GameMaster : MonoBehaviour {
 
         Debug.Log("GAME OVER");
         gameOverUI.SetActive(true);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            ToggleUpgradeMenu();
+        }
+    }
+
+    private void ToggleUpgradeMenu()
+    {
+        upgradeMenu.SetActive(!upgradeMenu.activeSelf);
+        onToggleUpgradeMenu.Invoke(upgradeMenu.activeSelf);
     }
 
     public IEnumerator _RespawnPlayer() {
