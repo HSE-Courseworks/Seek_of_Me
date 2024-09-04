@@ -12,6 +12,10 @@ public class GameMaster : MonoBehaviour {
         get { return _remainingLives; }
     }
 
+    [SerializeField]
+    private int startingMoney;
+    public static int Money;
+
     void Awake() {
         if (gm == null) {
             gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
@@ -45,6 +49,8 @@ public class GameMaster : MonoBehaviour {
             Debug.LogError("No camera shake referenced in GameMaster");
         }
         _remainingLives = maxLives;
+
+        Money = startingMoney;
 
         //caching
         audioManager = AudioManager.instance;

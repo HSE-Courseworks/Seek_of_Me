@@ -73,4 +73,9 @@ public class Enemy : MonoBehaviour {
             DamageEnemy(9999999);
         }
     }
+
+    void OnDestroy()
+    {
+        GameMaster.gm.onToggleUpgradeMenu -= OnUpgradeMenuToggle;
+    }
 }

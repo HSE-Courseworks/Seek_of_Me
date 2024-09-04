@@ -63,6 +63,11 @@ public class Player : MonoBehaviour {
             _weapon.enabled = !active;
     }
 
+    void OnDestroy()
+    {
+        GameMaster.gm.onToggleUpgradeMenu -= OnUpgradeMenuToggle;
+    }
+
     public void DamagePlayer(int damage) {
         stats.curHealth -= damage;
         if (stats.curHealth <= 0) {
