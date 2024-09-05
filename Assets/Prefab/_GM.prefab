@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLives: 3
+  startingMoney: 100
   playerPrefab: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
   spawnPoint: {fileID: 4411403657718808}
   spawnDelay: 3
@@ -120,8 +121,10 @@ MonoBehaviour:
     type: 2}
   respawnCountdownSoundName: RespawnCountdown
   spawnSoundName: Spawn
+  gameOverSoundName: GameOver
   cameraShake: {fileID: 114944841702864902}
   gameOverUI: {fileID: 0}
+  upgradeMenu: {fileID: 0}
 --- !u!114 &114275248082708930
 MonoBehaviour:
   m_ObjectHideFlags: 1
