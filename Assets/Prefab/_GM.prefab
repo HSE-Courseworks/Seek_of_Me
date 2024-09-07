@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114244620095525576}
   - component: {fileID: 114944841702864902}
   - component: {fileID: 114230526492367834}
+  - component: {fileID: 114230241910042728}
   m_Layer: 0
   m_Name: _GM
   m_TagString: GM
@@ -72,6 +73,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114230241910042728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1876869477485204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f358ee49207f57f419d163bf598088f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthRegenRate: 2
+  movementSpeed: 10
 --- !u!114 &114230526492367834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +140,7 @@ MonoBehaviour:
   cameraShake: {fileID: 114944841702864902}
   gameOverUI: {fileID: 0}
   upgradeMenu: {fileID: 0}
+  waveSpawner: {fileID: 114230526492367834}
 --- !u!114 &114275248082708930
 MonoBehaviour:
   m_ObjectHideFlags: 1
