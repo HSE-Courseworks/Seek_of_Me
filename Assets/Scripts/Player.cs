@@ -6,22 +6,6 @@ using UnityStandardAssets._2D;
 [RequireComponent(typeof(Platformer2DUserControl))]
 public class Player : MonoBehaviour {
 
-    [System.Serializable]
-	public class PlayerStats {
-        public int maxHealth = 100;
-        private int _curHealth;
-        public int curHealth {
-            get { return _curHealth; }
-            set { _curHealth = Mathf.Clamp(value, 0, maxHealth); }
-        }
-
-        public void Init() {
-            curHealth = maxHealth;
-        }
-    }
-
-    public PlayerStats stats = new PlayerStats();
-
     public int fallBoundary = -20;
 
     public string deathSoundName = "DeathVoice";
@@ -32,8 +16,13 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private StatusIndicator statusIndicator;
 
+    private PlayerStats stats;
+
     void Start() {
-        stats.Init();
+        stats = PlayerStats.instance;
+
+        stats.curHealth = stats.maxHealth;
+
         if (statusIndicator == null) {
             Debug.LogError("No status indicator referenced on player");
         }
@@ -47,6 +36,14 @@ public class Player : MonoBehaviour {
         if (audioManager == null) {
             Debug.LogError("PANIC! No AudioManager in scene.");
         }
+
+        InvokeRepeating("RegenHealth", 1f/stats.healthRegenRate, 1f/stats.healthRegenRate);
+    }
+
+    void RegenHealth()
+    {
+        stats.curHealth += 1;
+        statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
     }
 
     void Update() {
