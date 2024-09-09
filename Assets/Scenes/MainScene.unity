@@ -255,16 +255,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114244620095525576, guid: 90aea3a710f8211459444ec3b5d5f650,
+    - target: {fileID: 114944841702864902, guid: 90aea3a710f8211459444ec3b5d5f650,
         type: 2}
-      propertyPath: gameOverUI
+      propertyPath: mainCam
       value: 
-      objectReference: {fileID: 1562281003}
-    - target: {fileID: 114244620095525576, guid: 90aea3a710f8211459444ec3b5d5f650,
-        type: 2}
-      propertyPath: upgradeMenu
-      value: 
-      objectReference: {fileID: 1125407000}
+      objectReference: {fileID: 633479317}
     - target: {fileID: 114275248082708930, guid: 90aea3a710f8211459444ec3b5d5f650,
         type: 2}
       propertyPath: backgrounds.Array.data[0]
@@ -280,11 +275,16 @@ Prefab:
       propertyPath: backgrounds.Array.data[2]
       value: 
       objectReference: {fileID: 265126726}
-    - target: {fileID: 114944841702864902, guid: 90aea3a710f8211459444ec3b5d5f650,
+    - target: {fileID: 114244620095525576, guid: 90aea3a710f8211459444ec3b5d5f650,
         type: 2}
-      propertyPath: mainCam
+      propertyPath: gameOverUI
       value: 
-      objectReference: {fileID: 633479317}
+      objectReference: {fileID: 1562281003}
+    - target: {fileID: 114244620095525576, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: upgradeMenu
+      value: 
+      objectReference: {fileID: 1125407000}
     - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
         type: 2}
       propertyPath: spawnPoints.Array.data[0]
@@ -300,11 +300,6 @@ Prefab:
       propertyPath: spawnPoints.Array.data[2]
       value: 
       objectReference: {fileID: 95723762}
-    - target: {fileID: 114230241910042728, guid: 90aea3a710f8211459444ec3b5d5f650,
-        type: 2}
-      propertyPath: healthRegenRate
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90aea3a710f8211459444ec3b5d5f650, type: 2}
   m_IsPrefabParent: 0
@@ -2213,11 +2208,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.size
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 4304173665967426, guid: 905d642590eca374eba03f757654687a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2249,66 +2239,6 @@ Prefab:
     - target: {fileID: 4304173665967426, guid: 905d642590eca374eba03f757654687a, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[11].name
-      value: NoMoney
-      objectReference: {fileID: 0}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[11].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0a39dbf21558a5c41ab1458999924f87, type: 3}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[11].volume
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[11].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[11].randomVolume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[11].randomPitch
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[12].name
-      value: Money
-      objectReference: {fileID: 0}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[12].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 552f0bf7642a9bd42be81727efa1c567, type: 3}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[12].volume
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[12].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[12].randomVolume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114395437153187194, guid: 905d642590eca374eba03f757654687a,
-        type: 2}
-      propertyPath: sounds.Array.data[12].randomPitch
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 905d642590eca374eba03f757654687a, type: 2}
@@ -3209,7 +3139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.20588237, g: 0.57281953, b: 1, a: 1}
+  m_Color: {r: 0.20588237, g: 0.57281953, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

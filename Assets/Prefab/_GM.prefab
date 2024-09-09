@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healthRegenRate: 2
+  healthRegenRate: 5
   movementSpeed: 10
 --- !u!114 &114230526492367834
 MonoBehaviour:
