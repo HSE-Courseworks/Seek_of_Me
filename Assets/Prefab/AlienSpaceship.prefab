@@ -173,6 +173,8 @@ MonoBehaviour:
     type: 2}
   shakeAmt: 0.1
   shakeLength: 0.1
+  deathSoundName: Explosion
+  moneyDrop: 10
   statusIndicator: {fileID: 114707620639610226}
 --- !u!114 &114707620639610226
 MonoBehaviour:
@@ -341,7 +343,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ba45e26f7e0b4184f926880c044e950e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3ed6a1b42592404181137cbff11bcda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -28,6 +28,7 @@ public class Tiling : MonoBehaviour {
     void Start () {
         SpriteRenderer sRenderer = GetComponent<SpriteRenderer>();
         spriteWidth = sRenderer.sprite.bounds.size.x * Mathf.Abs(transform.localScale.x); // taking into account the scale of object
+        //spriteWidth = sRenderer.sprite.bounds.size.x;
     }
 	
 	// Update is called once per frame
