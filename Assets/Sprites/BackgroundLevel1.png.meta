@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 079f7750ad7f750458b02cc6317dbe48
+guid: 239741311fb4123418fd240f69f7a37e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BackgroundMountains
+    21300000: BackgroundLevel1_0
     21300002: BackgroundLevel1_1
-    21300004: BackgroundDesert
-    21300006: BackgroundLevel1_3
+    21300004: BackgroundLevel1_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -63,7 +62,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -73,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -83,7 +82,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackgroundMountains
+      name: BackgroundLevel1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -103,7 +102,7 @@ TextureImporter:
         x: 0
         y: 257
         width: 512
-        height: 77
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,27 +110,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BackgroundDesert
+      name: BackgroundLevel1_2
       rect:
         serializedVersion: 2
         x: 0
         y: 139
         width: 512
         height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: BackgroundLevel1_3
-      rect:
-        serializedVersion: 2
-        x: 316
-        y: 228
-        width: 4
-        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
