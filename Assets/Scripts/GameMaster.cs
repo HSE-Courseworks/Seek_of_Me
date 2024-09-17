@@ -125,4 +125,27 @@ public class GameMaster : MonoBehaviour {
         cameraShake.Shake(_enemy.shakeAmt, _enemy.shakeLength);
         Destroy(_enemy.gameObject);
     }
+
+    public static void KillBoss(Boss boss)
+    {
+        gm._KillBoss(boss);
+    }
+
+    public void _KillBoss(Boss _boss)
+    {
+        // Play sound
+        audioManager.PlaySound(_boss.deathSoundName);
+
+        // Gain some money
+        Money += _boss.moneyDrop;
+        audioManager.PlaySound("Money");
+
+        // Add particles
+        Transform _clone = Instantiate(_boss.deathParticles, _boss.transform.position, Quaternion.identity) as Transform;
+        Destroy(_clone.gameObject, 5f);
+
+        // Go camera shake
+        cameraShake.Shake(_boss.shakeAmt, _boss.shakeLength);
+        Destroy(_boss.gameObject);
+    }
 }
