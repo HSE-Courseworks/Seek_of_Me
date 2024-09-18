@@ -15,11 +15,15 @@ public class WaveSpawner : MonoBehaviour
 		public float rate;
 	}
 
-	public Wave[] waves;
+    public bool bossWave;
+    public Wave[] waves;
 	private int nextWave = 0;
-	public int NextWave
-	{
-		get { return nextWave + 1; }
+	public string WaveName {
+		get {
+            if (bossWave && nextWave + 1 == waves.Length)
+                return "BOSS";
+            return (nextWave + 1).ToString();
+        }
 	}
 
 	public Transform[] spawnPoints;
