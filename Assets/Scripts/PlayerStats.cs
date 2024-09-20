@@ -23,6 +23,13 @@ public class PlayerStats : MonoBehaviour
         {
             instance = this;
         }
+        else
+        {
+            this.maxHealth = instance.maxHealth;
+            this.movementSpeed = instance.movementSpeed;
+            Destroy(instance.gameObject);
+            instance = this;
+        }
     }
 
 }

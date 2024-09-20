@@ -12,6 +12,6 @@ public class LivesCounterUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        livesText.text = "LIVES: " + GameMaster.RemainingLives.ToString();
+        livesText.text = "LIVES: " + GameMaster.gm.RemainingLives.ToString();
 	}
 }

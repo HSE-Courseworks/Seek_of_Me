@@ -223,6 +223,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: waves.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4975234377781234, guid: 90aea3a710f8211459444ec3b5d5f650, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -300,6 +305,53 @@ Prefab:
       propertyPath: spawnPoints.Array.data[2]
       value: 
       objectReference: {fileID: 95723762}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: waves.Array.data[3].name
+      value: Alien Invasion Hardcore 2.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: waves.Array.data[3].enemy
+      value: 
+      objectReference: {fileID: 4222100175662590, guid: f4ea9f68ca19e6847813b8b3f3e75f48,
+        type: 2}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: waves.Array.data[3].count
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: waves.Array.data[3].rate
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: waves.Array.data[4].name
+      value: Alien Invasion Hardcore 3.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: waves.Array.data[4].enemy
+      value: 
+      objectReference: {fileID: 4222100175662590, guid: f4ea9f68ca19e6847813b8b3f3e75f48,
+        type: 2}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: waves.Array.data[4].count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: waves.Array.data[4].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230526492367834, guid: 90aea3a710f8211459444ec3b5d5f650,
+        type: 2}
+      propertyPath: waves.Array.data[2].count
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90aea3a710f8211459444ec3b5d5f650, type: 2}
   m_IsPrefabParent: 0
@@ -936,6 +988,11 @@ Prefab:
     - target: {fileID: 100002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780220946710424, guid: 87a2357765801c34292d6718d8b4d770,
+        type: 2}
+      propertyPath: Damage
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87a2357765801c34292d6718d8b4d770, type: 2}

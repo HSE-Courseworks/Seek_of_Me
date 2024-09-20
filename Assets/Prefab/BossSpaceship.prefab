@@ -202,8 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d5a78ab10ea684ca05b7fab7cc389a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftTarget: {fileID: 0}
-  rightTarget: {fileID: 0}
+  leftTarget: {fileID: 4735302016458482, guid: 04d13b1dd5c0e424488bbcb30223d9af, type: 2}
+  rightTarget: {fileID: 4586362117883470, guid: 29a4e8a08bebaca40b949d93b44b084e,
+    type: 2}
   speed: 500
   fMode: 0
 --- !u!114 &114552097946239948
