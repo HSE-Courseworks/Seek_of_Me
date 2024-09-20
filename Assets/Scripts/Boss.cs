@@ -51,6 +51,11 @@ public class Boss : MonoBehaviour {
 
     void OnUpgradeMenuToggle(bool active) {
         GetComponent<BossAI>().enabled = !active;
+        BossWeaponNRotation _bossWeapon = GetComponentInChildren<BossWeaponNRotation>();
+        if (_bossWeapon != null)
+        {
+            _bossWeapon.enabled = !active;
+        }
     }
 
     public void DamageBoss(int damage) {

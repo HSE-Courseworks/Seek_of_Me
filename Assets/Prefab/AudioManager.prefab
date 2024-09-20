@@ -143,3 +143,10 @@ MonoBehaviour:
     randomVolume: 0.2
     randomPitch: 0.1
     loop: 0
+  - name: BossShot
+    clip: {fileID: 8300000, guid: 5aa775cc43151fc4bb9e9bd10a26cbe9, type: 3}
+    volume: 0.7
+    pitch: 0.8
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
