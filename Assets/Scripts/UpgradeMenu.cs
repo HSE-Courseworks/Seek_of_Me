@@ -34,7 +34,7 @@ public class UpgradeMenu : MonoBehaviour {
 
     public void UpgradeHealth()
     {
-        if (GameMaster.Money < upgradeCost)
+        if (GameMaster.gm.Money < upgradeCost)
         {
             AudioManager.instance.PlaySound("NoMoney");
             return;
@@ -42,7 +42,7 @@ public class UpgradeMenu : MonoBehaviour {
         
         stats.maxHealth = (int)(stats.maxHealth * healthMultiplier);
 
-        GameMaster.Money -= upgradeCost;
+        GameMaster.gm.Money -= upgradeCost;
         AudioManager.instance.PlaySound("Money");
 
         UpdateValues();
@@ -50,7 +50,7 @@ public class UpgradeMenu : MonoBehaviour {
 
     public void UpgradeSpeed()
     {
-        if (GameMaster.Money < upgradeCost)
+        if (GameMaster.gm.Money < upgradeCost)
         {
             AudioManager.instance.PlaySound("NoMoney");
             return;
@@ -58,7 +58,7 @@ public class UpgradeMenu : MonoBehaviour {
 
         stats.movementSpeed = Mathf.Round(stats.movementSpeed * movementSpeedMultiplier);
 
-        GameMaster.Money -= upgradeCost;
+        GameMaster.gm.Money -= upgradeCost;
         AudioManager.instance.PlaySound("Money");
 
         UpdateValues();

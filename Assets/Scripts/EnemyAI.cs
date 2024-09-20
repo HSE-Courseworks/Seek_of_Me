@@ -62,7 +62,8 @@ public class EnemyAI : MonoBehaviour {
         {
 			yield return new WaitForSeconds(0.5f);
 			StartCoroutine(SearchForPlayer());
-        } else
+        }
+        else
         {
 			target = sResult.transform;
 			searchingForPlayer = false;

@@ -7,18 +7,30 @@ public class GameMaster : MonoBehaviour {
 
     [SerializeField]
     private int maxLives = 3;
-    private static int _remainingLives;
-    public static int RemainingLives {
+    private int _remainingLives;
+    public int RemainingLives {
         get { return _remainingLives; }
     }
 
     [SerializeField]
     private int startingMoney;
-    public static int Money;
+    public int Money;
 
     void Awake() {
         if (gm == null) {
             gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+            DontDestroyOnLoad(this);
+            _remainingLives = maxLives;
+            Money = startingMoney;
+        }
+        else {
+            if (gm != this) {
+                this._remainingLives = gm._remainingLives;
+                this.Money = gm.Money;
+                Destroy(gm.gameObject);
+                gm = GameObject.FindGameObjectsWithTag("GM")[1].GetComponent<GameMaster>();
+                DontDestroyOnLoad(this);
+            }
         }
     }
 
@@ -51,9 +63,6 @@ public class GameMaster : MonoBehaviour {
         if (cameraShake == null) {
             Debug.LogError("No camera shake referenced in GameMaster");
         }
-        _remainingLives = maxLives;
-
-        Money = startingMoney;
 
         //caching
         audioManager = AudioManager.instance;
@@ -94,7 +103,7 @@ public class GameMaster : MonoBehaviour {
         Destroy(clone.gameObject, 3f);
     }
 
-	public static void KillPlayer(Player player) {
+	public void KillPlayer(Player player) {
         Destroy(player.gameObject);
         --_remainingLives;
         if (_remainingLives <= 0) {
@@ -124,5 +133,28 @@ public class GameMaster : MonoBehaviour {
         // Go camera shake
         cameraShake.Shake(_enemy.shakeAmt, _enemy.shakeLength);
         Destroy(_enemy.gameObject);
+    }
+
+    public static void KillBoss(Boss boss)
+    {
+        gm._KillBoss(boss);
+    }
+
+    public void _KillBoss(Boss _boss)
+    {
+        // Play sound
+        audioManager.PlaySound(_boss.deathSoundName);
+
+        // Gain some money
+        Money += _boss.moneyDrop;
+        audioManager.PlaySound("Money");
+
+        // Add particles
+        Transform _clone = Instantiate(_boss.deathParticles, _boss.transform.position, Quaternion.identity) as Transform;
+        Destroy(_clone.gameObject, 5f);
+
+        // Go camera shake
+        cameraShake.Shake(_boss.shakeAmt, _boss.shakeLength);
+        Destroy(_boss.gameObject);
     }
 }

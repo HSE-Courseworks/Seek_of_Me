@@ -78,7 +78,7 @@ public class WaveUI : MonoBehaviour {
 			waveAnimator.SetBool("WaveCountdown", false);
 			waveAnimator.SetBool("WaveIncoming", true);
 
-			waveCountText.text = spawner.NextWave.ToString();
+			waveCountText.text = spawner.WaveName;
 
 			// Debug.Log("SPAWNING");
 		}

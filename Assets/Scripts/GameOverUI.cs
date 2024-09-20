@@ -29,7 +29,8 @@ public class GameOverUI : MonoBehaviour {
     public void Retry() {
         audioManager.PlaySound(buttonPressSoundName);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Destroy(GameMaster.gm.gameObject);
+        SceneManager.LoadScene(1);
     }
 
     public void OnMouseOver() {
