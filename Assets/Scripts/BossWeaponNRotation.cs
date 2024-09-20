@@ -86,6 +86,16 @@ public class BossWeaponNRotation : MonoBehaviour {
 	void Shoot()
 	{
 		// StartCoroutine(PointWeapon());
+		if (target == null)
+		{
+			if (!searchingForPlayer)
+			{
+				searchingForPlayer = true;
+				StartCoroutine(SearchForPlayer());
+			}
+			return;
+		}
+
 		Vector2 targetPosition = new Vector2(target.position.x, target.position.y);
 		Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
 		RaycastHit2D hit = Physics2D.Raycast(firePointPosition, targetPosition - firePointPosition, 100, whatToHit);
