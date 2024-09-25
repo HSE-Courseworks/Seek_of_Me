@@ -1,24 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class StatusIndicator : MonoBehaviour {
 
-    [SerializeField]
-	private RectTransform healthBarRect;
-	[SerializeField]
-	private Text healthText;
+    [SerializeField] private RectTransform healthBarRect;
+	[SerializeField] private Text healthText;
 
 	void Start()
     {
 		if (healthBarRect == null)
         {
-            Debug.LogError("STATUS INDICATOR: No health bar object referenced");
+            Debug.LogError("Error: Status Indicator: No health bar object referenced");
         }
         if (healthText == null)
         {
-            Debug.LogError("STATUS INDICATOR: No health text object referenced");
+            Debug.LogError("Error: Status Indicator: No health text object referenced");
         }
     }
 

@@ -3,20 +3,13 @@ using UnityEngine.UI;
 
 public class UpgradeMenu : MonoBehaviour {
 
-	[SerializeField]
-	private Text healthText;
+	[SerializeField] private Text healthText;
+    [SerializeField] private Text speedText;
 
-    [SerializeField]
-    private Text speedText;
+    [SerializeField] private float healthMultiplier = 1.3f;
+    [SerializeField] private float movementSpeedMultiplier = 1.3f;
 
-    [SerializeField]
-    private float healthMultiplier = 1.3f;
-
-    [SerializeField]
-    private float movementSpeedMultiplier = 1.3f;
-
-    [SerializeField]
-    private int upgradeCost = 50;
+    [SerializeField] private int upgradeCost = 50;
 
     private PlayerStats stats;
 
