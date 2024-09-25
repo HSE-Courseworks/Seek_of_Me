@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityStandardAssets._2D;
 
 [RequireComponent(typeof(Platformer2DUserControl))]
@@ -13,18 +11,16 @@ public class Player : MonoBehaviour {
 
     private AudioManager audioManager;
 
-    [SerializeField]
-    private StatusIndicator statusIndicator;
+    [SerializeField] private StatusIndicator statusIndicator;
 
     private PlayerStats stats;
 
     void Start() {
         stats = PlayerStats.instance;
-
         stats.curHealth = stats.maxHealth;
 
         if (statusIndicator == null) {
-            Debug.LogError("No status indicator referenced on player");
+            Debug.LogError("Error: Player: No status indicator referenced on player");
         }
         else {
             statusIndicator.SetHealth(stats.curHealth, stats.maxHealth);
@@ -34,7 +30,7 @@ public class Player : MonoBehaviour {
 
         audioManager = AudioManager.instance;
         if (audioManager == null) {
-            Debug.LogError("PANIC! No AudioManager in scene.");
+            Debug.LogError("Error: Player: No audio manager referenced on the scene");
         }
 
         InvokeRepeating("RegenHealth", 1f/stats.healthRegenRate, 1f/stats.healthRegenRate);

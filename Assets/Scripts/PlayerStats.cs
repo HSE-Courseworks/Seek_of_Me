@@ -14,7 +14,6 @@ public class PlayerStats : MonoBehaviour
     }
 
     public float healthRegenRate = 2f;
-
     public float movementSpeed = 10f;
 
     void Awake()
@@ -31,5 +30,4 @@ public class PlayerStats : MonoBehaviour
             instance = this;
         }
     }
-
 }

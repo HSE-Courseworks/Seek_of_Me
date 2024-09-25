@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Weapon : MonoBehaviour {
 
@@ -10,10 +9,10 @@ public class Weapon : MonoBehaviour {
 	public Transform BulletTrailPrefab;
 	public Transform HitPrefab;
 	public Transform MuzzleFlashPrefab;
+
 	float timeToSpawnEffect = 0;
 	public float effectSpawnRate = 10;
 
-	// handle camera shaking
 	public float camShakeAmt = 0.05f;
 	public float camShakeLength = 0.1f;
 	CameraShake camShake;
@@ -23,33 +22,28 @@ public class Weapon : MonoBehaviour {
 	float timeToFire = 0;
 	Transform firePoint;
 
-    // Caching
     AudioManager audioManager;
 
 	void Awake() {
 		firePoint = transform.Find("FirePoint");
 		if (firePoint == null) {
-			Debug.LogError("No FirePoint? WHAT?!");
+			Debug.LogError("Error: Weapon: No fire point object found on the scene");
         }
     }
 
 	void Start() {
 		camShake = GameMaster.gm.GetComponent<CameraShake>();
 		if (camShake == null) {
-			Debug.LogError("No camera shake script found on gm object!");
+			Debug.LogError("Error: Weapon: No camera shake script found on the gm object");
         }
 
         audioManager = AudioManager.instance;
         if (audioManager == null) {
-            Debug.LogError("FREAK OUT! No AudioManager found in scene.");
+            Debug.LogError("Error: Weapon: No audio manager referenced on the scene");
         }
     }
 	
-	// Update is called once per frame
 	void Update () {
-		// enable the next line when debugging
-		// Shoot();
-
 		if (fireRate == 0) {
 			if (Input.GetButtonDown("Fire1")) {
 				Shoot();
@@ -126,10 +120,7 @@ public class Weapon : MonoBehaviour {
 		clone.localScale = new Vector3(size, size, size);
 		Destroy(clone.gameObject, 0.02f);
 
-		//Shake the camera
 		camShake.Shake(camShakeAmt, camShakeLength);
-
-        //Play shoot sound
         audioManager.PlaySound(weaponShootSound);
     }
 }
